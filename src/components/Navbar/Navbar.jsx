@@ -10,7 +10,7 @@ function Navbar() {
         <div className={styles.logoBox}>
           {/* 确保路径正确，public里的图片直接用 / 开始 */}
           <img 
-            src="/element/eupho.webp" 
+            src="./element/eupho.webp" 
             alt="Logo" 
             className={styles.logoImage} 
             onError={(e) => { e.target.style.display = 'none'; }} // 如果图裂了就隐藏

@@ -15,7 +15,7 @@ const myImages = [
 
 function App() {
   return (
-    <Router>
+    <Router basename="/react-project">
       <div style={{ minHeight: '100vh', backgroundColor: '#fafafa' }}>
         <Navbar />
 

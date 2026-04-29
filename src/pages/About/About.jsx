@@ -9,7 +9,7 @@ function About() {
         {/* 注意：图片路径请确保在 public/images 文件夹下 */}
         <div 
           className={styles.imageSection} 
-          style={{ backgroundImage: `url('/element/backimg.webp')` }} 
+          style={{ backgroundImage: `url('./element/backimg.webp')` }} 
         />
 
         {/* 右侧：文字区域 */}
