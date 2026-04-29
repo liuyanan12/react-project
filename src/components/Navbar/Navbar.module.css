@@ -1,0 +1,173 @@
+/* Navbar.module.css */
+
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  /* 使用 clamp 让高度在 60px 到 80px 之间随屏幕变动 */
+  height: clamp(60px, 8vh, 80px); 
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  /* 侧边距也随屏幕宽度变化，手机端窄一点，电脑端宽一点 */
+  padding: 0 clamp(1rem, 5vw, 30px);
+  background-color: #01acc6;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.logoGroup {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  gap: 12px;
+}
+
+.logoBox {
+  /* Logo 大小随视口变化，但保证不小于 40px，不大于 56px */
+  width: clamp(40px, 5vw, 56px);
+  height: clamp(40px, 5vw, 56px);
+  border-radius: 99rem;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 4px 12px rgba(1, 172, 198, 0.2);
+}
+
+/* 在 Logo 上方加一层流光 */
+.logoBox::after {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -60%;
+  width: 20%;
+  height: 200%;
+  background: rgba(255, 255, 255, 0.3);
+  transform: rotate(30deg);
+  /* 流光循环动画 */
+  animation: shine 6s infinite;
+}
+
+/* 抽离到 CSS 后可以轻松加这个效果 */
+.logoBox:hover {
+  transform: scale(1.05);
+}
+
+.logoImage {
+  width: 80%;
+  height: 80%;
+  object-fit: contain;
+}
+
+.brandName {
+  display: flex;
+  flex-direction: column; /* 核心属性：让子元素上下排列 */
+  justify-content: center;
+  align-items: flex-start; /* 左对齐，如果想居中可以改 center */
+  line-height: 1.1;        /* 调整行间距，防止上下两行离得太远 */
+  gap: 2px;                /* 设置上下两行之间的小间距 */
+  cursor: pointer;
+}
+
+/* 如果想更细致地控制品牌名的两部分，可以分开写样式 */
+.brandName_hibiki {
+  font-size: clamp(16px, 2vw, 20px);
+  font-weight: 900;
+  color: #FEF830;
+  -webkit-text-stroke: 0.1px #ffffff;
+  paint-order: stroke fill;
+  gap: 6px; /* 你可以根据感觉调整这个数值，比如 4px, 8px 等 */
+  letter-spacing: 1px;
+}
+
+.brandName_euphon {
+  display: inline-block; /* 必须设置，否则 transform 可能不生效 */
+  font-size: clamp(12px, 1vw, 16px);
+  font-weight: 600;
+  color: #01acc6;
+  -webkit-text-stroke: 1.5px #ffffff;
+  paint-order: stroke fill;
+  transform: skewX(-15deg);
+  transform-origin: bottom left;
+  /* 给第二行加一个极细微的上下起伏动画，模拟呼吸 */
+  animation: float 4s ease-in-out infinite;
+}
+
+.navLinks {
+  display: flex;
+  gap: 30px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  margin-left: 50px; /* 与 Logo 保持距离 */
+}
+
+.link, .activeLink {
+ text-decoration: none; /* 强制去掉默认下划线 */
+  font-size: 16px;
+  font-weight: 500;
+  padding: 8px 12px;
+  border-radius: 8px; /* 给一个淡淡的圆角感 */
+  transition: all 0.3s ease;
+  position: relative; /* 为自定义下划线做准备 */
+}
+
+.link {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.link:hover {
+  color: #fff;
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.activeLink {
+  color: #ffffff;
+  font-weight: 700;
+}
+
+/* 模仿高级感的下划线：激活时显示 */
+.activeLink::after {
+  content: "";
+  position: absolute;
+  bottom: -5px; /* 线条位置 */
+  left: 15%;
+  width: 70%;
+  height: 3px;
+  background-color: #f9d023; /* 吹响吧！上低音号的标志金色 */
+  border-radius: 2px;
+  box-shadow: 0 0 10px rgba(249, 208, 35, 0.5); /* 淡淡的金光 */
+}
+
+.navRight {
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+}
+
+
+
+/* 手机端隐藏文字或缩小间距的补充（可选） */
+@media (max-width: 480px) {
+  .brandName {
+    display: none; /* 手机端如果太挤，可以只留 Logo */
+  }
+}
+
+/* --- 动画定义 --- */
+
+/* 呼吸起伏 */
+@keyframes float {
+  0%, 100% { transform: skewX(-15deg) translateY(0); }
+  50% { transform: skewX(-15deg) translateY(-2px); }
+}
+
+/* 标志性流光 */
+@keyframes shine {
+  0% { left: -60%; }
+  20% { left: 120%; }
+  100% { left: 120%; }
+}

@@ -1,0 +1,30 @@
+.mapWrapper {
+  height: calc(100vh - 80px); /* 减去顶部导航栏高度 */
+  width: 95%;
+  margin: 10px auto;
+  border-radius: 20px;
+  overflow: hidden;
+  border: 8px solid #fff;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.leafletContainer {
+  height: 100%;
+  width: 100%;
+}
+
+.popupContent {
+  text-align: center;
+  width: 150px;
+}
+
+.popupImg {
+  width: 100%;
+  border-radius: 5px;
+}
+
+.popupTitle {
+  font-weight: bold;
+  margin-top: 5px;
+  color: #333;
+}

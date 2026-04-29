@@ -1,0 +1,111 @@
+/* 撑满全屏，并减去导航栏高度 */
+.aboutWrapper {
+  width: 100%;
+  min-height: calc(100vh - 75px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f5f5f5; /* 浅灰色底衬托卡片 */
+}
+
+.splitLayout {
+  display: grid;
+  /* 关键点：左侧占 40%，右侧占 60% */
+  grid-template-columns: 40% 60%; 
+  width: 90%;
+  max-width: 1200px;
+  min-height: 600px;
+  background: white;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+/* --- 左侧图片部分 --- */
+.imageSection {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  /* 增加一个淡蓝色的蒙版，呼应京吹主色调 */
+  background-color: #01acc6;
+  position: relative;
+}
+
+/* --- 右侧文字部分 --- */
+.textSection {
+  padding: 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.title {
+  font-size: 3rem;
+  color: #01acc6;
+  margin: 0;
+}
+
+.subtitle {
+  font-size: 1.5rem;
+  color: #333;
+  margin: 10px 0 30px;
+  border-bottom: 3px solid #f9d023; /* 京吹金色点缀 */
+  display: inline-block;
+}
+
+.description {
+  line-height: 1.8;
+  color: #555;
+  font-size: 1.1rem;
+}
+
+.techInfo h3 {
+  margin-top: 40px;
+  color: #01acc6;
+}
+
+.techInfo ul {
+  list-style: none;
+  padding: 0;
+}
+
+.techInfo li {
+  padding: 5px 0;
+  color: #666;
+}
+
+.devTag {
+  margin-top: 25px;
+  font-size: 13px;
+  color: #999; /* 颜色调淡一点 */
+  letter-spacing: 1px;
+  font-style: italic; /* 斜体增加设计感 */
+}
+
+.devTag span {
+  color: #f9d023; /* 那个点用金色，像呼吸灯一样 */
+  margin-right: 8px;
+  animation: blink 2s infinite; /* 增加一个闪烁动画，表示“正在开发” */
+}
+
+@keyframes blink {
+  0% { opacity: 1; }
+  50% { opacity: 0.3; }
+  100% { opacity: 1; }
+}
+
+
+/* --- 响应式处理：手机端自动变回垂直排列 --- */
+@media (max-width: 768px) {
+  .splitLayout {
+    grid-template-columns: 1fr; /* 变成单列 */
+  }
+  
+  .imageSection {
+    height: 300px; /* 手机端图片固定高度 */
+  }
+  
+  .textSection {
+    padding: 30px;
+  }
+}

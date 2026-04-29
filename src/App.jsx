@@ -1,47 +1,38 @@
-import React from 'react'
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 
-// 假设你有三张图，名字分别是 1.jpg, 2.jpg, 3.jpg
-// 你可以根据实际情况增减这个数组
+// 导入组件
+import Navbar from './components/Navbar/Navbar';
+import Gallery from './pages/Gallery/Gallery';
+import MapView from './pages/Map/MapView';
+import About from './pages/about/About';
 const myImages = [
-  { id: 1, url: './images/640.png', title: '我的作品 1' },
-  { id: 2, url: './images/kk.png', title: '我的作品 2' },
-  { id: 3, url: './images/xz.jpg', title: '我的作品 3' },
-  { id: 4, url: './images/yui.jpg', title: '我的作品 4' },
+  { id: 1, url: './images/640.png', title: '我的作品 1', lat: 34.8892, lng: 135.8077 }, // 增加了坐标示例
+  { id: 2, url: './images/kk.png', title: '我的作品 2', lat: 34.9000, lng: 135.8100 },
+  { id: 3, url: './images/xz.jpg', title: '我的作品 3', lat: 34.8800, lng: 135.7900 },
+  { id: 4, url: './images/yui.jpg', title: '我的作品 4', lat: 34.8950, lng: 135.8050 },
 ];
 
 function App() {
   return (
-    <div style={{ padding: '40px', fontFamily: 'sans-serif' }}>
-      <header style={{ textAlign: 'center', marginBottom: '40px' }}>
-        <h1>我的图片门户网站</h1>
-        <p>纯页面展示项目</p>
-      </header>
+    <Router>
+      <div style={{ minHeight: '100vh', backgroundColor: '#fafafa' }}>
+        <Navbar />
 
-      <main style={{
-        display: 'grid',
-        gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))',
-        gap: '20px'
-      }}>
-        {myImages.map(img => (
-          <div key={img.id} style={{
-            borderRadius: '12px',
-            overflow: 'hidden',
-            boxShadow: '0 4px 15px rgba(0,0,0,0.1)',
-            backgroundColor: '#fff'
-          }}>
-            <img 
-              src={img.url} 
-              alt={img.title} 
-              style={{ width: '100%', display: 'block', height: '250px', objectFit: 'cover' }} 
-            />
-            <div style={{ padding: '15px', textAlign: 'center' }}>
-              <p style={{ margin: 0, fontWeight: 'bold' }}>{img.title}</p>
-            </div>
-          </div>
-        ))}
-      </main>
-    </div>
-  )
+        <main style={{ marginTop: 'clamp(65px, 9vh, 75px)' }}>
+          <Routes>
+            <Route path="/" element={<Navigate to="/gallery" replace />} />
+            <Route path="/gallery" element={<Gallery photos={myImages}/>} />
+            <Route path="/map" element={<MapView photos={myImages}/>} />
+            <Route path="/about" element={<About />} />
+            
+            {/* 404 页面处理（可选） */}
+            <Route path="*" element={<div style={{padding: '40px'}}>404 - 页面去北宇治找学姐了</div>} />
+          </Routes>
+        </main>
+      </div>
+    </Router>
+  );
 }
 
-export default App
+export default App;
