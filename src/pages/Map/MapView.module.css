@@ -28,3 +28,17 @@
   margin-top: 5px;
   color: #333;
 }
+
+.dev_banner {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: #fef3c7; /* 淡淡的金色/黄色 */
+  color: #92400e;
+  text-align: center;
+  padding: 8px;
+  z-index: 9999; /* 确保在地图图层之上 */
+  font-size: 14px;
+  border-bottom: 1px solid #f59e0b;
+}

@@ -7,9 +7,11 @@ import styles from './MapView.module.css'; // 建议样式也抽离
 
 function MapView() {
   const defaultPosition = [34.8892, 135.8077]; // 宇治市大概坐标
-
   return (
     <div className={styles.mapWrapper}>
+      <div className={styles.dev_banner}>
+        🚧 <b>当前状态：</b> 诶？！地图好像还没有完善，再给我一点时间（吹号音）...
+      </div>
       <MapContainer center={defaultPosition} zoom={14} className={styles.leafletContainer}>
         <TileLayer 
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"

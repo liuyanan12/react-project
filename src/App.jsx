@@ -15,8 +15,8 @@ const myImages = [
 
 function App() {
   return (
-    <Router basename="/react-project">
-      <div style={{ minHeight: '100vh', backgroundColor: '#fafafa' }}>
+    <Router basename="/kitauji-archive">
+      <div>
         <Navbar />
 
         <main style={{ marginTop: 'clamp(65px, 9vh, 75px)' }}>

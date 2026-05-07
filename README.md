@@ -3,11 +3,11 @@
 [![React](https://img.shields.io/badge/React-18-61dafb?style=for-the-badge&logo=react)](https://react.dev/)
 [![Vite](https://img.shields.io/badge/Vite-Latest-646cff?style=for-the-badge&logo=vite)](https://vitejs.dev/)
 [![Leaflet](https://img.shields.io/badge/Maps-Leaflet-199900?style=for-the-badge&logo=leaflet)](https://leafletjs.com/)
-[![Status](https://img.shields.io/badge/Status-Developing-yellow?style=for-the-badge)](https://liuyanan12.github.io/react-project/)
+[![Status](https://img.shields.io/badge/Status-Developing-yellow?style=for-the-badge)](https://liuyanan12.github.io/kitauji-archive/)
 
 > **“下一曲，即将在宇治川畔奏响。”**
 > 
-> 这是一个基于 React 构建的《响奏吧！尤风尼厄姆》（吹响吧！上低音号）主题圣地巡礼地图与个人作品集系统。
+> 这是一个基于 React 构建的『響け！ユーフォニアム』（吹响吧！上低音号）主题圣地巡礼地图与个人作品集系统。
 
 ---
 
@@ -35,10 +35,10 @@
 
 ```bash
 # 克隆仓库
-git clone [https://github.com/liuyanan12/react-project.git](https://github.com/liuyanan12/react-project.git)
+git clone [https://github.com/liuyanan12/kitauji-archive.git](https://github.com/liuyanan12/kitauji-archive.git)
 
 # 进入目录
-cd react-project
+cd kitauji-archive
 
 # 安装依赖
 npm install

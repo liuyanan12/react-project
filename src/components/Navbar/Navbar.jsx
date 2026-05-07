@@ -52,7 +52,7 @@ function Navbar() {
 
       {/* 3. 右侧区域 */}
       <div className={styles.navRight}>
-        <a href="https://github.com/liuyanan12/react-project" target="_blank" rel="noreferrer" className={styles.githubLink}>
+        <a href="https://github.com/liuyanan12/kitauji-archive" target="_blank" rel="noreferrer" className={styles.githubLink}>
           GitHub
         </a>
       </div>
