@@ -18,8 +18,8 @@ function MapView() {
           attribution='&copy; OpenStreetMap contributors'
         />
         
-        {myImages.map(photo => (
-          <Marker key={photo.id} position={[photo.lat, photo.lng]}>
+        {myImages.map(photo =>photo.showMarker&&(
+          <Marker key={photo.id} position={[photo.position[0], photo.position[1]]}>
             <Popup>
               <div className={styles.popupContent}>
                 <img src={photo.url} alt={photo.title} className={styles.popupImg} />
